@@ -117,7 +117,7 @@ def run(initial_comment, command, send):
     return p.returncode
 
 
-def slacker(token, channels, initial_comment, command):
+def shirker(token, channels, initial_comment, command):
     send = create_send(token, channels)
     return run(initial_comment, command, send)
 
@@ -137,7 +137,7 @@ def main():
     token = fsspec.open(args.tokenpath).open().read()
     channels = [c.strip() for c in args.channels.split(",")]
     
-    ret = slacker(token, channels, args.initial_comment, command)
+    ret = shirker(token, channels, args.initial_comment, command)
 
     sys.exit(ret)
     
